@@ -5,6 +5,8 @@ from langchain.agents import create_agent
 from langchain.agents.structured_output import ToolStrategy
 from langchain_openai import ChatOpenAI
 
+
+# ! ADD DOCSTRINGS
 class QuestionWithAnswer(BaseModel):
     question: str
     answer: str

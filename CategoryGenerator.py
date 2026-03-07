@@ -9,7 +9,7 @@ from langchain.agents.structured_output import ToolStrategy
 
 load_dotenv()
 
-
+# ! ADD DOCSTRINGS
 class Categories(BaseModel):
     categories: List[str]
 
@@ -28,11 +28,11 @@ class CategoryGenerator:
                                           response_format=ToolStrategy(Categories))
     
     def generate_categories(self, num_categories):
-        self.categoryAgent.invoke({'messages': [{'role': 'system', 'content': f'generate {num_categories} jeopardy-style categories' }]})
+        return self.categoryAgent.invoke({'messages': [{'role': 'system', 'content': f'generate {num_categories} jeopardy-style categories' }]})
 
 # *For Testing Purposes Only
 num_categories = 6
 categoryGenerator = CategoryGenerator()
-response = categoryGenerator.generate_categories()
+response = categoryGenerator.generate_categories(num_categories)
 print(response)
 print(response['structured_response'].categories)

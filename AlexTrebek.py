@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# ! ADD DOCSTRINGS 
+# ! FLESH THIS OUT
+# ? Chat Model might be too heavy for this type of task, just need a simple comparison and output.
 class AlexTrebek:
     def __init__(self):
         create_agent(
