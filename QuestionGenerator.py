@@ -33,9 +33,9 @@ class QuestionGenerator:
                                            [{'role': 'user',
                                             'content': f'Generate a jeopardy-style question that is appropriate for the category: {category}, number of points: {num_points} and whether or not it is a daily double: {isDailyDouble}.'}]})
 
-# * For Testing Purposes Only
-questionGenerator = QuestionGenerator()
-response = questionGenerator.generate_question('Historical Monuments', 1000, False)
-print(response['structured_response'].question, response['structured_response'].answer, sep='\n')
+# # * For Testing Purposes Only
+# //questionGenerator = QuestionGenerator()
+# //response = questionGenerator.generate_question('Historical Monuments', 1000, False)
+# //print(response['structured_response'].question, response['structured_response'].answer, sep='\n')
         
     

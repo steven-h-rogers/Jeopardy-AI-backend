@@ -1,2 +1,6 @@
 .env
 environment_variables/
+rest_test.py
+rest_test.js
+index.html
+notes.txt
