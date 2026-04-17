@@ -8,6 +8,7 @@ category_generator = CategoryGenerator()
 question_generator = QuestionGenerator()
 alex_trebek = AlexTrebek()
 
+# CHANGE THIS TO FASTAPI
 app = Flask(__name__)
 CORS(app)
 
