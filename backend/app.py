@@ -1,22 +1,23 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-from CategoryGenerator import CategoryGenerator
-from QuestionGenerator import QuestionGenerator
-from AlexTrebek import AlexTrebek
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from backend.src.CategoryGenerator import CategoryGenerator
+from backend.src.QuestionGenerator import QuestionGenerator
+from backend.src.AlexTrebek import AlexTrebek
 
 category_generator = CategoryGenerator()
 question_generator = QuestionGenerator()
 alex_trebek = AlexTrebek()
 
 # CHANGE THIS TO FASTAPI
-app = Flask(__name__)
-CORS(app)
+app = FastAPI()
 
-@app.route('/')
+@app.get('/')
 def health():
     return {'status': 'ok'}
 
-@app.route('/generate-categories', methods=['GET'])
+# ! will need to restructure this endpoint
+@app.get('/generate-categories')
 def generate_categories():
     num_categories = request.headers.get('num-categories')
     category_list = category_generator.generate_categories(num_categories)['structured_response'].categories
