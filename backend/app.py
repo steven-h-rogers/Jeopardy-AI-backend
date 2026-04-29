@@ -1,9 +1,11 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Form
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.src.CategoryGenerator import CategoryGenerator
 from backend.src.QuestionGenerator import QuestionGenerator
 from backend.src.AlexTrebek import AlexTrebek
+
+from backend.models import CategoryPayload
 
 category_generator = CategoryGenerator()
 question_generator = QuestionGenerator()
@@ -17,8 +19,8 @@ def health():
     return {'status': 'ok'}
 
 # ! will need to restructure this endpoint
-@app.get('/generate-categories')
-def generate_categories():
+@app.get('/generate-categories/')
+def generate_categories(category_payload: CategoryPayload = Form(...)):
     num_categories = request.headers.get('num-categories')
     category_list = category_generator.generate_categories(num_categories)['structured_response'].categories
     # print(category_list)
