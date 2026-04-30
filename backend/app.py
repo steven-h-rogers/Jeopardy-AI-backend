@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Form
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.src.CategoryGenerator import CategoryGenerator
@@ -20,11 +20,12 @@ def health():
 
 # ! will need to restructure this endpoint
 @app.get('/generate-categories/')
-def generate_categories(category_payload: CategoryPayload = Form(...)):
-    num_categories = request.headers.get('num-categories')
+async def generate_categories(category_payload: CategoryPayload = Depends()):
+    num_categories = category_payload.num_categories
+    # browser will handle custom categories
     category_list = category_generator.generate_categories(num_categories)['structured_response'].categories
     # print(category_list)
-    return jsonify({'category-list': category_list})
+    return {'category-list': category_list}
 
 
 

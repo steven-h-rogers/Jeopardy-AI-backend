@@ -29,6 +29,7 @@ class CategoryGenerator:
                                           response_format=ToolStrategy(Categories))
     
     def generate_categories(self, num_categories):
+        # ? consider using t strings as they are better at preventing injection type attacks
         return self.categoryAgent.invoke({'messages': [{'role': 'system', 'content': f'generate {num_categories} jeopardy-style categories' }]})
 
 #  *For Testing Purposes Only

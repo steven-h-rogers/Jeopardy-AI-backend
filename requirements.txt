@@ -1,4 +1,7 @@
 langchain
+langchain-openai
 fastapi
 fastapi[standard]
 kagglehub
+pandas
+numpy
