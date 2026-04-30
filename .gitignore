@@ -6,3 +6,5 @@ index.html
 notes.txt
 jeopardy-ai-env/
 jeopardy-ai-env
+__pycache__/
+*.pyc
