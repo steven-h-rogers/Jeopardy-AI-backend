@@ -1,3 +1,6 @@
+import time
+import functools
+
 from dotenv import load_dotenv
 
 from pydantic import BaseModel, Field
@@ -9,6 +12,22 @@ from langchain.agents.structured_output import ToolStrategy
 
 
 load_dotenv()
+
+
+def timer(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.perf_counter()
+        result = func(*args, **kwargs)
+        end_time = time.perf_counter()
+
+        duration = end_time - start_time
+        print(f"Executed {func.__name__} in {duration:.4f} seconds")
+        return result
+    return wrapper
+
+
+
 
 
 
