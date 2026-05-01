@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List
 
 from langchain_openai import ChatOpenAI
@@ -10,15 +10,28 @@ from langchain.agents.structured_output import ToolStrategy
 
 load_dotenv()
 
+
+
+
+
+
+
+
 # ! ADD DOCSTRINGS
+class CategoryResponse(BaseModel):
+    categories: List[str] = Field(description="The list of generated category names")
+
 class Categories(BaseModel):
     categories: List[str]
 
-
+# ! Move away from using an agent as it is slower for this task
 # ? implement a method to manually add categories and bypass using ai budget
 class CategoryGenerator:
     def __init__(self):
         self.categories = []
+
+        llm = ChatOpenAI(model="gpt-5-nano", temperature=0)
+
 
         self.model = ChatOpenAI(
             model='gpt-5-mini' 
