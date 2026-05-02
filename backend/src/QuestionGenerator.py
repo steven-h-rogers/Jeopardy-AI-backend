@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+from backend.models import QuestionPayload, FinalQuestionPayload
 
 from pydantic import BaseModel
 from langchain.agents import create_agent

@@ -4,8 +4,15 @@ class CategoryPayload(BaseModel):
     num_categories: int = 6 # if missing -> 6, if a different int -> that int
     # use_classic_categories: bool = False
     
+class QuestionPayload(BaseModel):
+    category: str
+    difficulty: str
+    value: int
+    round: int
+    is_double_jeopardy: bool
+    correct_answer: str
 
-# future model for custom point layout
-# class PointPayload(BaseModel):
-#     point_map: list[list[int]] | list[int] | None = None
+class FinalQuestionPayload(BaseModel):
+    difficulty: str
+    correct_answer: str
 
