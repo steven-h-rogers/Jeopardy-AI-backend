@@ -11,7 +11,6 @@ class QuestionPayload(BaseModel):
     value: int
     round: int
     is_daily_double: bool
-    correct_answer: str
 
 class FinalQuestionPayload(BaseModel):
     difficulty: str
@@ -25,8 +24,11 @@ class CategoryOutput(BaseModel):
     categories: list[str] = Field(description="The list of generated category names")
 
 class QuestionOutput(BaseModel):
-    question: str
-    answer: str
+    question: str = Field(description="A string that consists only of a Jeopardy-style question")
+    answer: str = Field(description="A string that consists only of a Jeopardy-style answer")
+
+class JudgeOutput(BaseModel):
+    verdict: bool = Field(description="A True or False verdict on whether the provided answer would be accepted in Jeopardy by Alex Trebek")
 
 
 

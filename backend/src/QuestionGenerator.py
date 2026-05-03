@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from backend.models import QuestionOutput
+from backend.src.utils import timer
 
 from pydantic import BaseModel
 from langchain.agents import create_agent
@@ -14,28 +15,31 @@ class QuestionGenerator:
         self.question_history = []
 
 
-        self._llm = ChatOpenAI(model="gpt-5-mini", temperature=0, reasoning_effort='low')
-        self.structured_llm = self._llm.with_structured_output()
+        self._llm = ChatOpenAI(model="gpt-5-mini", temperature=0.25, reasoning_effort='low')
+        self.structured_llm = self._llm.with_structured_output(QuestionOutput)
 
 
         self.model = ChatOpenAI(
-            model='gpt-5-mini' 
+            model='gpt-5-mini',
+            reasoning_effort='low'
         )
 
         self.question_agent = create_agent(
             model=self.model,
-            system_prompt=f"You are tasked with creating Jeopardy-style questions and answers. DO NOT repeat/ask questions that would be considered too similar to previously asked ones for the actual show. Responses should be given purely as QUESTION and ANSWER with no filler or redundancy",
+            system_prompt=f"You must create Jeopardy-style questions that are appropriate for the given information",
             response_format=ToolStrategy(QuestionOutput)
         )
     
-    def generate_question(self, category, num_points, isDailyDouble=False):
+    @timer
+    def generate_question(self, category, difficulty, value, round=1, is_daily_double = False):
         return self.question_agent.invoke({'messages': 
                                            [{'role': 'user',
-                                            'content': f'Generate a jeopardy-style question that is appropriate for the category: {category}, number of points: {num_points} and whether or not it is a daily double: {isDailyDouble}.'}]})
+                                            'content': f'Category: {category} Game Difficulty: {difficulty} Value: {value} Round: {round} Daily Double: {is_daily_double} \n Based on this information, generate an appropriate Jeopardy-style question (that can be answered solely based on the text of the question) with an expected answer.'}]})
+    
+    @timer
+    def generate_question_updated(self, category, difficulty, value, round=1, is_daily_double=False):
+        prompt = f'Category: {category} Game Difficulty: {difficulty} Value: {value} Round: {round} Daily Double: {is_daily_double} \n Based on this information, generate an appropriate Jeopardy-style question (that can be answered solely based on the text of the question) with an expected answer.'
+        return self.structured_llm.invoke(prompt)
 
-# # * For Testing Purposes Only
-# //questionGenerator = QuestionGenerator()
-# //response = questionGenerator.generate_question('Historical Monuments', 1000, False)
-# //print(response['structured_response'].question, response['structured_response'].answer, sep='\n')
         
     

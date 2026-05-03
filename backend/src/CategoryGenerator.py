@@ -1,5 +1,4 @@
-import time
-import functools
+from backend.src.utils import timer
 
 from dotenv import load_dotenv
 from backend.models import CategoryOutput
@@ -11,17 +10,6 @@ from langchain.agents.structured_output import ToolStrategy
 
 load_dotenv()
 
-def timer(func):
-    @functools.wraps(func)
-    def wrapper(*args, **kwargs):
-        start_time = time.perf_counter()
-        result = func(*args, **kwargs)
-        end_time = time.perf_counter()
-
-        duration = end_time - start_time
-        print(f"Executed {func.__name__} in {duration:.4f} seconds")
-        return result
-    return wrapper
 
 # ! Move away from using an agent as it is slower for this task
 # ? implement a method to manually add categories and bypass using ai budget
