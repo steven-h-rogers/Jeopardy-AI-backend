@@ -16,6 +16,10 @@ class FinalQuestionPayload(BaseModel):
     difficulty: str
     correct_answer: str
 
+class JudgePayload(BaseModel):
+    question: str
+    provided_answer: str
+
 
 """Models for structured output with LangChain"""
 class CategoryOutput(BaseModel):
@@ -29,6 +33,6 @@ class QuestionOutput(BaseModel):
 
 class JudgeOutput(BaseModel):
     verdict: bool = Field(description="A True or False verdict on whether the provided answer would be accepted in Jeopardy by Alex Trebek")
-
+    reason: str = Field(description="A brief explanation of the factor(s) that influenced the verdict") # comment out for debug purposes
 
 
