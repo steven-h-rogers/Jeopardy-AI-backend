@@ -32,7 +32,7 @@ class QuestionOutput(BaseModel):
     answer: str = Field(description="A string that consists only of a Jeopardy-style answer")
 
 class JudgeOutput(BaseModel):
-    verdict: bool = Field(description="A True or False verdict on whether the provided answer would be accepted in Jeopardy by Alex Trebek")
+    verdict: bool = Field(description="A True or False verdict on whether the provided answer would be accepted in Jeopardy by Alex, including the format it was provided in")
     reason: str = Field(description="A brief explanation of the factor(s) that influenced the verdict") # comment out for debug purposes
 
 

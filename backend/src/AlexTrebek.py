@@ -21,7 +21,7 @@ class AlexTrebek:
 
         self.judge_agent = create_agent(
             model=self._llm,
-            system_prompt='You are Jeopardy host Alex Trebek and you must judge answers to Jeopardy-style questions as strictly and fairly as Alex Trebek would. Actual Answer should only be used to make sure there is no subject ambiguity, disregard format of that. format of provided answer DOES MATTER',
+            system_prompt='Act as Jeopardy host Alex Trebek. You must judge the answer to a Jeopardy-style question strictly and fairly. Actual Answer should only be used as a safeguard. if provided answer not in Jeopardy format it is FALSE',
             response_format=ToolStrategy(JudgeOutput)
         )
     @timer
@@ -30,5 +30,5 @@ class AlexTrebek:
             
     @timer
     def judge_answer_direct_structured(self, question, answer, provided_answer):
-            prompt = f'Question: {question} Actual Answer: {answer} Provided Answer: {provided_answer}\nJudge the provided answer as strictly as Alex Trebek would. Actual Answer should be used to make sure there is no subject ambiguity and for spelling forgiveness, disregard format of that. format of provided answer DOES MATTER'
+            prompt = f'Question: {question} Actual Answer: {answer} Provided Answer: {provided_answer}\nJudge the provided answer as strictly and fairly as Alex Trebek would. Actual Answer should be used to make sure there is no subject ambiguity and for spelling forgiveness. if provided answer not in Jeopardy format it is FALSE'
             return self.structured_llm.invoke(prompt)

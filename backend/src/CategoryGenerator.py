@@ -12,7 +12,7 @@ load_dotenv()
 class CategoryGenerator:
     def __init__(self):
 
-        self._llm = ChatOpenAI(model="gpt-5-mini", temperature=0, reasoning_effort='low')
+        self._llm = ChatOpenAI(model="gpt-5-mini", temperature=0.25, reasoning_effort='low')
         self.structured_llm = self._llm.with_structured_output(CategoryOutput)
 
         self.category_agent = create_agent(self._llm, 
