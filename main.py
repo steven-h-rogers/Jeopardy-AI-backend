@@ -2,6 +2,8 @@ from backend.src.CategoryGenerator import CategoryGenerator
 from backend.src.QuestionGenerator import QuestionGenerator
 from backend.src.AlexTrebek import AlexTrebek
 
+# For basic testing of each AI tools
+
 # * TESTING CATEGORY GENERATOR
 num_categories = 6
 categoryGenerator = CategoryGenerator()
@@ -15,15 +17,29 @@ print(response2['structured_response'].categories)
 response3 = categoryGenerator.generate_categories_direct_structured(num_categories)
 print(response3)
 
+
 # * TESTING QUESTION GENERATOR
 questionGenerator = QuestionGenerator()
-question_payload = ['Historical Monuments', 'medium', 1000, 1]
+question_payload1 = ['Historical Monuments', 'medium', 1000, 1, False, ["Completed in 1653 by Mughal emperor Shah Jahan as a mausoleum for his wife Mumtaz Mahal, this white marble monument on the Yamuna River is often called a 'monument to eternal love.'"]]
+question_payload2 = ['Historical Monuments', 'medium', 1000, 1, False, ["Completed in 1653 by Mughal emperor Shah Jahan as a mausoleum for his wife Mumtaz Mahal, this white marble monument on the Yamuna River is often called a 'monument to eternal love.'"]]
 
-response4 = questionGenerator.generate_question_with_agent(*question_payload)
+
+response4 = questionGenerator.generate_question_with_agent(*question_payload1)
 print(response4['structured_response'].question, response4['structured_response'].answer, sep='\n')
 
-response5 = questionGenerator.generate_question_direct_structured(*question_payload)
+# add question to payload and test again
+question_payload1[5].append(response4['structured_response'].question)
+
+response4_1 = questionGenerator.generate_question_with_agent(*question_payload1)
+print(response4_1['structured_response'].question, response4_1['structured_response'].answer, sep='\n')
+
+response5 = questionGenerator.generate_question_direct_structured(*question_payload2)
 print(response5)
+
+question_payload2[5].append(response5.question)
+
+response5_1 = questionGenerator.generate_question_direct_structured(*question_payload2)
+print(response5_1)
 
 # * TESTING JUDGEMENT
 judge = AlexTrebek()

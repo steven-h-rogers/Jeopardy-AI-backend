@@ -11,6 +11,9 @@ class QuestionPayload(BaseModel):
     value: int
     round: int
     is_daily_double: bool
+    # this may cause significant latency as the number of tokens per question will go up dramatically
+    # ? consider making this something like 'previous_answers' if latency is too noticeable
+    previously_asked_in_category: list[str] | None = Field(description='Previously asked questions in this category')
 
 class FinalQuestionPayload(BaseModel):
     difficulty: str
@@ -23,13 +26,11 @@ class JudgePayload(BaseModel):
 
 """Models for structured output with LangChain"""
 class CategoryOutput(BaseModel):
-    # categories: list[str]
-    # ! Test whether 'Field(description...)' has any real effect on latency
     categories: list[str] = Field(description="The list of generated category names")
 
 class QuestionOutput(BaseModel):
-    question: str = Field(description="A string that consists only of a Jeopardy-style question")
-    answer: str = Field(description="A string that consists only of a Jeopardy-style answer")
+    question: str = Field(description="A string that only consists of a Jeopardy-style question (that is not similar to any previously asked)")
+    answer: str = Field(description="A string that only consists of a Jeopardy-style answer")
 
 class JudgeOutput(BaseModel):
     verdict: bool = Field(description="A True or False verdict on whether the provided answer would be accepted in Jeopardy by Alex, including the format it was provided in")
