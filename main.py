@@ -8,7 +8,7 @@ from backend.src.QuestionSummarizer import QuestionSummarizer
 questionSummarizer = QuestionSummarizer()
 question1 = "This Chilean city whose name means ""valley of paradise"" lies on a wide inlet of the Pacific"
 summary1 = questionSummarizer.summarize_question(question1)
-print(f'summary1: {summary1}')
+print(f'summary1: {summary1.summary}')
 
 
 
