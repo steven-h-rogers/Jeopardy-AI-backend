@@ -1,8 +1,16 @@
 from backend.src.CategoryGenerator import CategoryGenerator
 from backend.src.QuestionGenerator import QuestionGenerator
 from backend.src.AlexTrebek import AlexTrebek
+from backend.src.QuestionSummarizer import QuestionSummarizer
 
 # For basic testing of each AI tools
+
+questionSummarizer = QuestionSummarizer()
+question1 = "This Chilean city whose name means ""valley of paradise"" lies on a wide inlet of the Pacific"
+summary1 = questionSummarizer.summarize_question(question1)
+print(f'summary1: {summary1}')
+
+
 
 # * TESTING CATEGORY GENERATOR
 num_categories = 6
