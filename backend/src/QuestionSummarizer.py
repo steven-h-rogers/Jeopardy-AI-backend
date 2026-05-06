@@ -1,6 +1,6 @@
 from langchain_openai import ChatOpenAI
 
-from backend.models import QuestionSummaryOutput
+from backend.models import QuestionSummaryOutput, TopicOutput
 from backend.src.utils import timer
 
 
@@ -15,9 +15,11 @@ class QuestionSummarizer():
         self.structured_llm = self._llm.with_structured_output(QuestionSummaryOutput)
 
     @timer
-    def summarize_question(self, question: str) -> QuestionSummaryOutput:
+    def summarize_question(self, question: str):
         prompt = f'Question: {question}\nGiven the question simply summarize the essence of it using as few words as possible and do nothing else'
         return self.structured_llm.invoke(prompt)
     
     @timer
-    def extract_topic(self, question: str) -> 
+    def extract_topic(self, question: str):
+        prompt = f'Question: {question}\nGiven the question, extract the topic that best describes what it was about broadly.'
+        return self.structured_llm.invoke(prompt)
