@@ -1,4 +1,4 @@
-from backend.models import JudgeOutput
+from backend.models.src_models import JudgeOutput
 from backend.src.utils import timer
 
 from langchain.agents import create_agent

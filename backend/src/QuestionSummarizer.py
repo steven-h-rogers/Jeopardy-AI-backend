@@ -1,6 +1,6 @@
 from langchain_openai import ChatOpenAI
 
-from backend.models import QuestionSummaryOutput, TopicOutput
+from backend.models.src_models import QuestionSummaryOutput, TopicOutput
 from backend.src.utils import timer
 
 

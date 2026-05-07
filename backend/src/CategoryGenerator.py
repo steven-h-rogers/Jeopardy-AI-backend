@@ -1,7 +1,7 @@
 from backend.src.utils import timer
 
 from dotenv import load_dotenv
-from backend.models import CategoryOutput
+from backend.models.src_models import CategoryOutput
 
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent

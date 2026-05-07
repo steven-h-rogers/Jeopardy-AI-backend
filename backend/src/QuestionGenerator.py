@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from backend.models import QuestionOutput
+from backend.models.src_models import QuestionOutput
 from backend.src.utils import timer
 
 from langchain.agents import create_agent
