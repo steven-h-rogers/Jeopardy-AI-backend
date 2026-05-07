@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 
 """Models for API validation"""
 class CategoryPayload(BaseModel):
-    num_categories: int = Field(description="The number of categories that are to be generated", default=6) # if missing -> 6, if a different int -> that int
+    num_categories: int = Field(description="The number of categories that are to be generated", default=6, gt=0, le=8) # if missing -> 6, if a different int -> that int
     # use_classic_categories: bool = False
 
 class QuestionPayload(BaseModel):
@@ -50,5 +50,6 @@ class FinalQuestionPayload(BaseModel):
 
 class JudgePayload(BaseModel):
     question: str = Field(description="The question that the user answered")
+    answer: str = Field(description="The actual answer to the question (format doesn't matter)")
     provided_answer: str = Field(description="The answer that the user provided")
 
