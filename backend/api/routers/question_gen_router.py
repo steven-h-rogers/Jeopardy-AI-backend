@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 from backend.src.QuestionGenerator import QuestionGenerator
-from backend.models.api_models import QuestionPayloadAnswers, QuestionPayload, QuestionPayloadTopics
+from backend.models.api_models import QuestionAnswerPayload, QuestionPayload, QuestionTopicPayload
 
 router = APIRouter(prefix='/question-generator',
                    tags=['question-generation'])
@@ -13,7 +13,7 @@ async def health():
     return{'status':'question_generator is functional'}
 
 @router.post('/generate-question/')
-async def generate_question(question_payload: QuestionPayloadAnswers):
+async def generate_question(question_payload: QuestionAnswerPayload):
     category = question_payload.category
     difficulty = question_payload.difficulty
     value = question_payload.value
