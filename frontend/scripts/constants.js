@@ -7,3 +7,6 @@ export const DEFAULT_QUICKPLAY_SETTINGS = {
 'numCategories': 6,
 'difficulty': 'medium'
 };
+
+export const DEFAULT_BOTS_ENABLED_PRACTICE = false;
+export const DEFAULT_BOTS_ENABLED_CLASSIC = true;
