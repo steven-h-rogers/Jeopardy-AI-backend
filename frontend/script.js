@@ -1,7 +1,3 @@
-defaultClassicQuickplaySettings = {
+import * as constants from "./constants";
 
-}
 
-defaultPracticeQuickplaySettings = {
-    
-}
