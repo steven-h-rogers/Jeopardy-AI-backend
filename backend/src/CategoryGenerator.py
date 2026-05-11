@@ -25,7 +25,10 @@ class CategoryGenerator:
     
     @timer
     def generate_categories_direct_structured(self, num_categories):
-        prompt = f"Generate {num_categories} Jeopardy-style categories (that don't require anything but text) that can either be original or from the show"
+        prompt = (
+        f"Create {num_categories} Jeopardy-style categories requiring only text-based clues. "
+        "Use a mix of original and classic show-style categories."
+        )       
         return self.structured_llm.invoke(prompt)
     
     # @timer

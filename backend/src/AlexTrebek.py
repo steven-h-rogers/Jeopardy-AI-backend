@@ -31,5 +31,10 @@ class AlexTrebek:
             
     @timer
     def judge_answer_direct_structured(self, question, answer, provided_answer):
-            prompt = f'Question: {question} Actual Answer: {answer} Provided Answer: {provided_answer}\nJudge the provided answer as strictly and fairly as Alex Trebek would. Actual Answer should be used to make sure there is no subject ambiguity and for spelling forgiveness. if provided answer not in Jeopardy format it is FALSE'
+            prompt = (
+                f"Q: {question}\n"
+                f"A: {answer}\n"
+                f"Player Answer: {provided_answer}\n"                
+                "Judge like Alex Trebek. TRUE only if the response is in Jeopardy form and semantically correct; allow minor spelling errors. Else FALSE."
+                )            
             return self.structured_llm.invoke(prompt)

@@ -30,7 +30,11 @@ class QuestionGenerator:
     @timer
     def generate_question_direct_structured(self, category, difficulty, value, round=1, is_daily_double=False, previously_asked_in_category=None):
         # print(f'Category: {category} Game Difficulty: {difficulty} Value: {value} Round: {round} Daily Double: {is_daily_double} Previously Asked Questions {previously_asked_in_category}')
-        prompt = f'Category: {category} Game Difficulty: {difficulty} Value: {value} Round: {round} Daily Double: {is_daily_double} Previously Asked Questions {previously_asked_in_category}\n Based on this information, generate an appropriate Jeopardy-style question (that can be answered solely based on the text of the question) with an expected answer. Do not ask questions that are too similar in nature to questions already asked (judge this on whether the show would allow it or not).'
+        prompt = (
+            f"{category=}, {difficulty=}, {value=}, {round=}, "
+            f"{is_daily_double=}, Previous: {previously_asked_in_category}\n"
+            "Generate a unique Jeopardy clue and expected response."
+            )        
         return self.structured_llm.invoke(prompt)
     
    

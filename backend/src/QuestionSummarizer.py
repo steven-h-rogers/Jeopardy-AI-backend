@@ -16,10 +16,10 @@ class QuestionSummarizer():
 
     @timer
     def summarize_question(self, question: str):
-        prompt = f'Question: {question}\nGiven the question simply summarize the essence of it using as few words as possible and do nothing else'
+        prompt = f"{question}\nSummarize briefly."
         return self.structured_llm.invoke(prompt)
     
     @timer
     def extract_topic(self, question: str):
-        prompt = f'Question: {question}\nGiven the question, extract the topic that best describes what it was about broadly.'
+        prompt = f"{question}\nExtract broad topic."
         return self.structured_llm.invoke(prompt)
