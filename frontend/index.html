@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JeopardAI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts/script.js" defer></script>
+</head>
+<body>
+<div id="banner">
+    <h1>JeopardAI</h1>
+</div>
+<div id="home-screen-container">
+    <h2>Classic</h2>
+    <button id="quickplay-classic">Quickplay</button>
+    <button id="custom-classic">Custom Game</button>   
+
+    <h2>Practice</h2>
+    <button id="quickplay-classic">Quickplay</button>
+    <button id="custom-classic">Custom Practice</button>
+    <button id="confidence-tester-practice-button">Confidence Test</button>
+
+    <h3>My Stats</h3>
+    <h4>Create/sign into account to track your stats</h4>
+</div>
+
+<!-- this would replace the home-screen-container when cutom x is pressed
+ only difference between custom game and custom practice is that practice won't have bots -->
+<div id="custom-settings-container">
+    <!-- !RESTRUCTURE THIS INTO AN EDITABLE TABLE WITH HEADERS -->
+    <div id="category-container">
+        <h3>Categories</h3>
+        <input type="text" class="category-input" value="AI-Generated Category"><input type="text" class="category-input" value="AI-Generated Category"><input type="text" class="category-input" value="AI-Generated Category"><input type="text" class="category-input" value="AI-Generated Category"><input type="text" class="category-input" value="AI-Generated Category"><input type="text" class="category-input" value="AI-Generated Category">
+        <button id="remove-category-button">-</button>
+        <button id="add-category-button">+</button>
+    </div>
+    <div id="question-value-container">
+        <h3>Question Values</h3>
+        <div id="col1-values">
+            <input type="text" class="value-input" value="200"><input type="text" class="value-input" value="400"><input type="text" class="value-input" value="600"><input type="text" class="value-input" value="800"><input type="text" class="value-input" value="1000">
+        </div>
+        <div id="col2-values">
+            <input type="text" class="value-input" value="200"><input type="text" class="value-input" value="400"><input type="text" class="value-input" value="600"><input type="text" class="value-input" value="800"><input type="text" class="value-input" value="1000">
+        </div>
+        <div id="col3-values">
+            <input type="text" class="value-input" value="200"><input type="text" class="value-input" value="400"><input type="text" class="value-input" value="600"><input type="text" class="value-input" value="800"><input type="text" class="value-input" value="1000">
+        </div>
+        <div id="col4-values">
+            <input type="text" class="value-input" value="200"><input type="text" class="value-input" value="400"><input type="text" class="value-input" value="600"><input type="text" class="value-input" value="800"><input type="text" class="value-input" value="1000">
+        </div>
+        <div id="col5-values">
+            <input type="text" class="value-input" value="200"><input type="text" class="value-input" value="400"><input type="text" class="value-input" value="600"><input type="text" class="value-input" value="800"><input type="text" class="value-input" value="1000">
+        </div>
+        <div id="col6-values">
+            <input type="text" class="value-input" value="200"><input type="text" class="value-input" value="400"><input type="text" class="value-input" value="600"><input type="text" class="value-input" value="800"><input type="text" class="value-input" value="1000">
+        </div>
+        
+    </div>
+    <div id="difficulty-container">
+        <h3>Difficulty</h3>
+        <select name="difficulty-selection" id="difficulty-selection" required>
+            <option value="" disabled selected hidden>Choose Difficulty</option>
+            <option value="very easy">Very Easy</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+            <option value="very hard">Very Hard</option>
+            <option value="master">Master</option>
+            
+        </select>
+    </div>
+    
+</div>
+
+<!-- this container will contain the actual game -->
+
+<div id="game-container">
+<!-- !RESTRUCTURE THIS INTO AN UNEDITABLE TABLE WITH HEADERS WHERE EACH CELL HAS A BUTTON CLICK EVENT ON IT -->
+    <div id="category-container">
+        <div class="tile category" id="category1">Category 1</div>
+        <div class="tile category" id="category2">Category 2</div>
+        <div class="tile category" id="category3">Category 3</div>
+        <div class="tile category" id="category4">Category 4</div>
+        <div class="tile category" id="category5">Category 5</div>
+        <div class="tile category" id="category6">Category 6</div>
+    </div>
+    <div id="question-container">
+        <div class="col1">
+            <div class="tile question" id="q1">200</div>
+            <div class="tile question" id="q2">400</div>
+            <div class="tile question" id="q3">600</div>
+            <div class="tile question" id="q4">800</div>
+            <div class="tile question" id="q5">1000</div>
+        </div>
+        <div class="col2">
+            <div class="tile question" id="q1">200</div>
+            <div class="tile question" id="q2">400</div>
+            <div class="tile question" id="q3">600</div>
+            <div class="tile question" id="q4">800</div>
+            <div class="tile question" id="q5">1000</div>
+        </div>
+        <div class="col3">
+            <div class="tile question" id="q1">200</div>
+            <div class="tile question" id="q2">400</div>
+            <div class="tile question" id="q3">600</div>
+            <div class="tile question" id="q4">800</div>
+            <div class="tile question" id="q5">1000</div>
+        </div>
+        <div class="col4">
+            <div class="tile question" id="q1">200</div>
+            <div class="tile question" id="q2">400</div>
+            <div class="tile question" id="q3">600</div>
+            <div class="tile question" id="q4">800</div>
+            <div class="tile question" id="q5">1000</div>
+        </div>
+        <div class="col5">
+            <div class="tile question" id="q1">200</div>
+            <div class="tile question" id="q2">400</div>
+            <div class="tile question" id="q3">600</div>
+            <div class="tile question" id="q4">800</div>
+            <div class="tile question" id="q5">1000</div>
+        </div>
+        <div class="col6">
+            <div class="tile question" id="q1">200</div>
+            <div class="tile question" id="q2">400</div>
+            <div class="tile question" id="q3">600</div>
+            <div class="tile question" id="q4">800</div>
+            <div class="tile question" id="q5">1000</div>
+        </div>
+        
+
+        
+    </div>
+</div>
+    
+</body>
+</html>
