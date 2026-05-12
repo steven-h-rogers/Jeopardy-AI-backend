@@ -18,4 +18,4 @@ async def judge_answer(judge_payload: JudgePayload):
     answer = judge_payload.answer
     provided_answer = judge_payload.provided_answer
     verdict = judge.judge_answer_direct_structured(question, answer, provided_answer)
-    return {'verdict': verdict}
+    return {'verdict': verdict.verdict}

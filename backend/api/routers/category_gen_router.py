@@ -17,5 +17,5 @@ async def health():
 async def generate_categories(category_payload: CategoryPayload):
     num_categories = category_payload.num_categories
     # browser will handle custom categories
-    category_list = category_generator.generate_categories_direct_structured(num_categories).categories
-    return {'category-list': category_list}
+    category_list = category_generator.generate_categories_direct_structured(num_categories)
+    return {'category-list': category_list.categories}
