@@ -29,7 +29,7 @@
  only difference between custom game and custom practice is that practice won't have bots -->
 <div id="custom-settings-container">
     <!-- !RESTRUCTURE THIS INTO AN EDITABLE TABLE WITH HEADERS -->
-    <div id="category-container">
+
         <table id="game-settings-table">
             <tr>
                 <th id="col1"><input type="text" id="col1-input" value="AI-Generated Category"></th>
@@ -50,7 +50,6 @@
             </tr>
 
 
-            
             <tr>
                 <td id="col1-q2"><input type="text" id="col1-q2-value-input" value="400"></td>
                 <td id="col2-q2"><input type="text" id="col2-q2-value-input" value="400"></td>
@@ -88,11 +87,10 @@
                 <td id="col4-q5"><input type="text" id="col4-q5-value-input" value="1000"></td>
                 <td id="col5-q5"><input type="text" id="col5-q5-value-input" value="1000"></td>
                 <td id="col6-q5"><input type="text" id="col6-q5-value-input" value="1000"></td>
-            </tr>
-
-                        
+            </tr>    
         </table>
     </div>
+
     <div id="difficulty-container">
         <h3>Difficulty</h3>
         <select name="difficulty-selection" id="difficulty-selection" required>
@@ -109,65 +107,71 @@
     
 </div>
 
-<!-- this container will contain the actual game -->
 
+<!-- this container will contain the actual game board -->
 <div id="game-container">
-<!-- !RESTRUCTURE THIS INTO AN UNEDITABLE TABLE WITH HEADERS WHERE EACH CELL HAS A BUTTON CLICK EVENT ON IT -->
-    <div id="category-container">
-        <div class="tile category" id="category1">Category 1</div>
-        <div class="tile category" id="category2">Category 2</div>
-        <div class="tile category" id="category3">Category 3</div>
-        <div class="tile category" id="category4">Category 4</div>
-        <div class="tile category" id="category5">Category 5</div>
-        <div class="tile category" id="category6">Category 6</div>
-    </div>
-    <div id="question-container">
-        <div class="col1">
-            <div class="tile question" id="q1">200</div>
-            <div class="tile question" id="q2">400</div>
-            <div class="tile question" id="q3">600</div>
-            <div class="tile question" id="q4">800</div>
-            <div class="tile question" id="q5">1000</div>
-        </div>
-        <div class="col2">
-            <div class="tile question" id="q1">200</div>
-            <div class="tile question" id="q2">400</div>
-            <div class="tile question" id="q3">600</div>
-            <div class="tile question" id="q4">800</div>
-            <div class="tile question" id="q5">1000</div>
-        </div>
-        <div class="col3">
-            <div class="tile question" id="q1">200</div>
-            <div class="tile question" id="q2">400</div>
-            <div class="tile question" id="q3">600</div>
-            <div class="tile question" id="q4">800</div>
-            <div class="tile question" id="q5">1000</div>
-        </div>
-        <div class="col4">
-            <div class="tile question" id="q1">200</div>
-            <div class="tile question" id="q2">400</div>
-            <div class="tile question" id="q3">600</div>
-            <div class="tile question" id="q4">800</div>
-            <div class="tile question" id="q5">1000</div>
-        </div>
-        <div class="col5">
-            <div class="tile question" id="q1">200</div>
-            <div class="tile question" id="q2">400</div>
-            <div class="tile question" id="q3">600</div>
-            <div class="tile question" id="q4">800</div>
-            <div class="tile question" id="q5">1000</div>
-        </div>
-        <div class="col6">
-            <div class="tile question" id="q1">200</div>
-            <div class="tile question" id="q2">400</div>
-            <div class="tile question" id="q3">600</div>
-            <div class="tile question" id="q4">800</div>
-            <div class="tile question" id="q5">1000</div>
-        </div>
-        
+   <table id="game-table">
+    <tr>
+        <th id="col1-category">Category 1</th>
+        <th id="col2-category">Category 2</th>
+        <th id="col3-category">Category 3</th>
+        <th id="col4-category">Category 4</th>
+        <th id="col5-category">Category 5</th>
+        <th id="col6-category">Category 6</th>
+    </tr>
+    <tr>
+        <td id="col1-q1">200</td>
+        <td id="col2-q1">200</td>
+        <td id="col3-q1">200</td>
+        <td id="col4-q1">200</td>
+        <td id="col5-q1">200</td>
+        <td id="col6-q1">200</td>
+    </tr>
+    <tr>
+        <td id="col1-q2">400</td>
+        <td id="col2-q2">400</td>
+        <td id="col3-q2">400</td>
+        <td id="col4-q2">400</td>
+        <td id="col5-q2">400</td>
+        <td id="col6-q2">400</td>
+    </tr>
+    <tr>
+        <td id="col1-q3">600</td>
+        <td id="col2-q3">600</td>
+        <td id="col3-q3">600</td>
+        <td id="col4-q3">600</td>
+        <td id="col5-q3">600</td>
+        <td id="col6-q3">600</td>
+    </tr>
+    <tr>
+        <td id="col1-q4">800</td>
+        <td id="col2-q4">800</td>
+        <td id="col3-q4">800</td>
+        <td id="col4-q4">800</td>
+        <td id="col5-q4">800</td>
+        <td id="col6-q4">800</td>
+    </tr>
+    <tr>
+        <td id="col1-q5">1000</td>
+        <td id="col2-q5">1000</td>
+        <td id="col3-q5">1000</td>
+        <td id="col4-q5">1000</td>
+        <td id="col5-q5">1000</td>
+        <td id="col6-q5">1000</td>
+    </tr>
+    
+   </table>
+</div>
 
-        
-    </div>
+
+<!-- This container will hold the question of the game -->
+
+<div id="question-container">
+
+    <h1>While he was vacationing at his father's Vermont home, word reached him that Harding had died </h1>
+    <div id="timer-bar"></div>
+    <input type="text">
+
 </div>
     
 </body>
