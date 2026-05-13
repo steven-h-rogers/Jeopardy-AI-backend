@@ -2,8 +2,26 @@ from backend.src.CategoryGenerator import CategoryGenerator
 from backend.src.QuestionGenerator import QuestionGenerator
 from backend.src.AlexTrebek import AlexTrebek
 from backend.src.QuestionSummarizer import QuestionSummarizer
+from backend.src.Bot import Bot
 
 # For basic testing of each AI tools
+
+bot = Bot()
+
+bot_question1 = "In December 1974 this former New York governor was sworn in as Vice President"
+bot_isCorrrect1 = True
+bot_response1 = bot.generate_bot_answer(bot_question1, bot_isCorrrect1)
+print(f'{bot_response1=}')
+
+bot_question2 = "In December 1974 this former New York governor was sworn in as Vice President"
+bot_isCorrrect2 = False
+bot_response2 = bot.generate_bot_answer(bot_question2, bot_isCorrrect2)
+print(f'{bot_response2=}')
+
+
+
+
+
 
 questionSummarizer = QuestionSummarizer()
 
