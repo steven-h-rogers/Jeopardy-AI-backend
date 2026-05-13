@@ -41,3 +41,7 @@ class JudgePayload(BaseModel):
     answer: str = Field(description="The actual answer to the question (format doesn't matter)")
     provided_answer: str = Field(description="The answer that the user provided")
 
+class BotPayload(BaseModel):
+    question: str = Field(description="A Jeopardy-style question")
+    isCorrect: bool = Field(description="True/False representation of whether the answer should be correct")
+
