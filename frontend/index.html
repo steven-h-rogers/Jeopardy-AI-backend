@@ -30,32 +30,68 @@
 <div id="custom-settings-container">
     <!-- !RESTRUCTURE THIS INTO AN EDITABLE TABLE WITH HEADERS -->
     <div id="category-container">
-        <h3>Categories</h3>
-        <input type="text" class="category-input" value="AI-Generated Category"><input type="text" class="category-input" value="AI-Generated Category"><input type="text" class="category-input" value="AI-Generated Category"><input type="text" class="category-input" value="AI-Generated Category"><input type="text" class="category-input" value="AI-Generated Category"><input type="text" class="category-input" value="AI-Generated Category">
-        <button id="remove-category-button">-</button>
-        <button id="add-category-button">+</button>
-    </div>
-    <div id="question-value-container">
-        <h3>Question Values</h3>
-        <div id="col1-values">
-            <input type="text" class="value-input" value="200"><input type="text" class="value-input" value="400"><input type="text" class="value-input" value="600"><input type="text" class="value-input" value="800"><input type="text" class="value-input" value="1000">
-        </div>
-        <div id="col2-values">
-            <input type="text" class="value-input" value="200"><input type="text" class="value-input" value="400"><input type="text" class="value-input" value="600"><input type="text" class="value-input" value="800"><input type="text" class="value-input" value="1000">
-        </div>
-        <div id="col3-values">
-            <input type="text" class="value-input" value="200"><input type="text" class="value-input" value="400"><input type="text" class="value-input" value="600"><input type="text" class="value-input" value="800"><input type="text" class="value-input" value="1000">
-        </div>
-        <div id="col4-values">
-            <input type="text" class="value-input" value="200"><input type="text" class="value-input" value="400"><input type="text" class="value-input" value="600"><input type="text" class="value-input" value="800"><input type="text" class="value-input" value="1000">
-        </div>
-        <div id="col5-values">
-            <input type="text" class="value-input" value="200"><input type="text" class="value-input" value="400"><input type="text" class="value-input" value="600"><input type="text" class="value-input" value="800"><input type="text" class="value-input" value="1000">
-        </div>
-        <div id="col6-values">
-            <input type="text" class="value-input" value="200"><input type="text" class="value-input" value="400"><input type="text" class="value-input" value="600"><input type="text" class="value-input" value="800"><input type="text" class="value-input" value="1000">
-        </div>
-        
+        <table id="game-settings-table">
+            <tr>
+                <th id="col1"><input type="text" id="col1-input" value="AI-Generated Category"></th>
+                <th id="col2"><input type="text" id="col2-input" value="AI-Generated Category"></th>
+                <th id="col3"><input type="text" id="col3-input" value="AI-Generated Category"></th>
+                <th id="col4"><input type="text" id="col4-input" value="AI-Generated Category"></th>
+                <th id="col5"><input type="text" id="col5-input" value="AI-Generated Category"></th>
+                <th id="col6"><input type="text" id="col6-input" value="AI-Generated Category"></th>
+            </tr>
+
+            <tr>
+                <td id="col1-q1"><input type="text" id="col1-q1-value-input" value="200"></td>
+                <td id="col2-q1"><input type="text" id="col2-q1-value-input" value="200"></td>
+                <td id="col3-q1"><input type="text" id="col3-q1-value-input" value="200"></td>
+                <td id="col4-q1"><input type="text" id="col4-q1-value-input" value="200"></td>
+                <td id="col5-q1"><input type="text" id="col5-q1-value-input" value="200"></td>
+                <td id="col6-q1"><input type="text" id="col6-q1-value-input" value="200"></td>
+            </tr>
+
+
+            
+            <tr>
+                <td id="col1-q2"><input type="text" id="col1-q2-value-input" value="400"></td>
+                <td id="col2-q2"><input type="text" id="col2-q2-value-input" value="400"></td>
+                <td id="col3-q2"><input type="text" id="col3-q2-value-input" value="400"></td>
+                <td id="col4-q2"><input type="text" id="col4-q2-value-input" value="400"></td>
+                <td id="col5-q2"><input type="text" id="col5-q2-value-input" value="400"></td>
+                <td id="col6-q2"><input type="text" id="col6-q2-value-input" value="400"></td>
+            </tr>
+
+            
+            <tr>
+                <td id="col1-q3"><input type="text" id="col1-q3-value-input" value="600"></td>
+                <td id="col2-q3"><input type="text" id="col2-q3-value-input" value="600"></td>
+                <td id="col3-q3"><input type="text" id="col3-q3-value-input" value="600"></td>
+                <td id="col4-q3"><input type="text" id="col4-q3-value-input" value="600"></td>
+                <td id="col5-q3"><input type="text" id="col5-q3-value-input" value="600"></td>
+                <td id="col6-q3"><input type="text" id="col6-q3-value-input" value="600"></td>
+            </tr>
+
+            
+            <tr>
+                <td id="col1-q4"><input type="text" id="col1-q4-value-input" value="800"></td>
+                <td id="col2-q4"><input type="text" id="col2-q4-value-input" value="800"></td>
+                <td id="col3-q4"><input type="text" id="col3-q4-value-input" value="800"></td>
+                <td id="col4-q4"><input type="text" id="col4-q4-value-input" value="800"></td>
+                <td id="col5-q4"><input type="text" id="col5-q4-value-input" value="800"></td>
+                <td id="col6-q4"><input type="text" id="col6-q4-value-input" value="800"></td>
+            </tr>
+
+            
+            <tr>
+                <td id="col1-q5"><input type="text" id="col1-q5-value-input" value="1000"></td>
+                <td id="col2-q5"><input type="text" id="col2-q5-value-input" value="1000"></td>
+                <td id="col3-q5"><input type="text" id="col3-q5-value-input" value="1000"></td>
+                <td id="col4-q5"><input type="text" id="col4-q5-value-input" value="1000"></td>
+                <td id="col5-q5"><input type="text" id="col5-q5-value-input" value="1000"></td>
+                <td id="col6-q5"><input type="text" id="col6-q5-value-input" value="1000"></td>
+            </tr>
+
+                        
+        </table>
     </div>
     <div id="difficulty-container">
         <h3>Difficulty</h3>
