@@ -14,4 +14,5 @@ class Bot():
         self.structured_llm = self._llm.with_structured_output(BotOutput)
 
     def generate_bot_answer(self, question, isCorrect):
-        prompt = f'{question=} {isCorrect=} based on the question and the is'
+        prompt = f'{question=} {isCorrect=} based on the question and isCorrect create an appropriate answer'
+        return self.structured_llm.invoke(prompt)
