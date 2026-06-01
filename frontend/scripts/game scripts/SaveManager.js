@@ -1,3 +1,5 @@
+import {Game} from './Game'
+
 class SaveManager{
     constructor(){
         this.game;
@@ -13,3 +15,5 @@ class SaveManager{
     }
 
 }
+
+export {SaveManager}
