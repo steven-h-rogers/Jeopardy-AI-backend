@@ -2,7 +2,7 @@ class QuestionTile{
     constructor(value, isDailyDouble){
         this.value = value;
         this.isDailyDouble = isDailyDouble;
-        this.text; 
+        this.text = null; 
     }
 
 

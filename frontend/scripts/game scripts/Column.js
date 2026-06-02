@@ -4,7 +4,7 @@ class Column{
     constructor(category, questionList){
         this.category = category;
         this.question_list = questionList;
-        this.previouslyAsked = [String];
+        this.previouslyAsked = []; //store strings of previously asked topics
     }
 }
 

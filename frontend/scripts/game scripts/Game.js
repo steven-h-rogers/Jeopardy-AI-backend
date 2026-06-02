@@ -5,7 +5,7 @@ class Game{
         this.round = round;
         this.difficulty = difficulty;
         this.table = table;
-        this.numDailyDouble;
+        this.numDailyDouble = 1;
     }
 }
 
