@@ -5,7 +5,6 @@ class QuestionTile{
         this.text = null; 
     }
 
-
     setText(text) {
         this.text = text;
     }
