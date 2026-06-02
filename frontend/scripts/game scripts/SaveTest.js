@@ -24,18 +24,15 @@ saveManager.setGame(game);
 console.log(saveManager.convertToJSON(saveManager.game));
 console.log(saveManager.convertToObject(saveManager.jsonState));
 
-// console.log(saveManager.gameTempObj.table);
+console.log(tile1);
+console.log(tile3);
 
+console.log(column1);
+console.log(column3);
 
-// console.log(tile1);
-// console.log(tile3);
+console.log(table);
 
-// console.log(column1);
-// console.log(column3);
-
-// console.log(table);
-
-// console.log(game);
+console.log(game);
 
 
 
