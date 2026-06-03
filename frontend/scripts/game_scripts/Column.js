@@ -30,6 +30,7 @@ class Column{
         }
     }
 
+    //for use in loading a game from JSON
     setQuestionList(questionList){
         this.question_list = questionList
     }

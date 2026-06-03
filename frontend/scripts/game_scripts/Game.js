@@ -6,23 +6,40 @@ class Game{
         this.difficulty = difficulty;
         this.table = null; //list of columns
         this.numDailyDouble = 1;
-        // add information about player and bots
+        //TODO: add UserPlayer and BotPlayer information
     }
 
     initializeGame(categoryList, numDailyDoubles){
         this.table = new Table();
         this.table.initializeTable(categoryList, numDailyDoubles);
     }
+
+
+    getQuickplayCategories(){
+        //TODO: Hook this up to the actual API eventually
+        return ["US Presidents", "Before & After", "US States", "Homophones", "Book to Screen", "Oscar Winners"]; //temp just for testing
+    }
+
+    getCustomCategories(numCategories){
+        //TODO: Hook this up to the actual API eventually
+        return []; 
+    }
+
+    updateQuestionTileText(columnIndex, rowIndex, text){
+        const questionTile = this.table.columns[columnIndex].questionList[rowIndex];
+        questionTile.setText(text);
+    }
+
+    updateQuestionTileAnswered(columnIndex, rowIndex, answered){
+        const questionTile = this.table.columns[columnIndex].questionList[rowIndex];
+        questionTile.setAnswered(answered);
+    }
+
 }
 
-function getQuickplayCategories(){
-    //TODO: Hook this up to the actual API eventually
-    return ["US Presidents", "Before & After", "US States", "Homophones", "Book to Screen", "Oscar Winners"]; //temp just for testing
-}
 
-function getCustomCategories(numCategories){
-    //TODO: Hook this up to the actual API eventually
-    return []; 
-}
+
+
+
 
 export {Game}

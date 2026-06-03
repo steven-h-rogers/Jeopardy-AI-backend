@@ -29,4 +29,8 @@ function setGameSelectionScreen(){
 }
 
 
+function setGameQuickplayScreen(){
+    return null;
+}
+
 
