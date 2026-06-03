@@ -15,7 +15,6 @@ class SaveManager{
         this.jsonState = jsonState;
     }
 
-
     convertToJSON(game){
         this.jsonState = JSON.stringify(game);
         return this.jsonState;

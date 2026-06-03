@@ -1,3 +1,4 @@
+import { QuestionTile } from "./QuestionTile.js";
 import { Table } from "./Table.js";
 
 class Game{
@@ -6,7 +7,7 @@ class Game{
         this.difficulty = difficulty;
         this.table = null; //list of columns
         this.numDailyDouble = 1;
-        //TODO: add UserPlayer and BotPlayer information
+        // TODO: add information about player and bots
     }
 
     initializeGame(categoryList, numDailyDoubles){
@@ -14,32 +15,26 @@ class Game{
         this.table.initializeTable(categoryList, numDailyDoubles);
     }
 
-
-    getQuickplayCategories(){
-        //TODO: Hook this up to the actual API eventually
-        return ["US Presidents", "Before & After", "US States", "Homophones", "Book to Screen", "Oscar Winners"]; //temp just for testing
+    setNumDailyDouble(number){
+        this.numDailyDouble = number;
     }
 
-    getCustomCategories(numCategories){
-        //TODO: Hook this up to the actual API eventually
-        return []; 
-    }
-
-    updateQuestionTileText(columnIndex, rowIndex, text){
+    askQuestion(columnIndex, rowIndex){
+        //QuestionTile related
         const questionTile = this.table.columns[columnIndex].questionList[rowIndex];
-        questionTile.setText(text);
-    }
+        let value = questionTile.value;
+        let isDailyDouble = questionTile.isDailyDouble;
 
-    updateQuestionTileAnswered(columnIndex, rowIndex, answered){
-        const questionTile = this.table.columns[columnIndex].questionList[rowIndex];
-        questionTile.setAnswered(answered);
-    }
+        //Game related
+        let round = this.round;
+        let difficulty = this.difficulty;
 
+        //Column Related
+        let category = this.table.columns[columnIndex].category;
+        let previouslyAsked = this.table.columns[columnIndex].previouslyAsked;
+
+        //TODO: add actual api call to get the question and answer.
+    }
 }
-
-
-
-
-
 
 export {Game}

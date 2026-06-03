@@ -18,12 +18,12 @@ class Column{
         const daily_double_indeces = generate_random_indeces(6, numDailyDoubles); //TODO: Remove hardcoding of number of questions in column
         for (let i = 0; i<5; i++){
             if (daily_double_indeces.includes(i)){
-                const question = new QuestionTile(value, true);
+                const question = new QuestionTile(value, 2*value, true);
                 this.questionList.push(question);
                 value += 200;
             }
             else{
-                const question = new QuestionTile(value, false);
+                const question = new QuestionTile(value, value, false);
                 this.questionList.push(question);
                 value += 200;
             }   
