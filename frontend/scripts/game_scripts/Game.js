@@ -15,4 +15,14 @@ class Game{
     }
 }
 
+function getQuickplayCategories(){
+    //TODO: Hook this up to the actual API eventually
+    return ["US Presidents", "Before & After", "US States", "Homophones", "Book to Screen", "Oscar Winners"]; //temp just for testing
+}
+
+function getCustomCategories(numCategories){
+    //TODO: Hook this up to the actual API eventually
+    return []; 
+}
+
 export {Game}
