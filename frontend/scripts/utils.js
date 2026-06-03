@@ -1,4 +1,4 @@
-
+//TODO: add version with weights towards higher stop indeces
 function generate_random_indeces(stop, numIndeces, start=0){
     let indices = [];
     for (let i=0; i<numIndeces; i++){
@@ -8,7 +8,6 @@ function generate_random_indeces(stop, numIndeces, start=0){
         }
         indices.push(index);
     }
-    console.log(indices);
     return indices;
 }
 

@@ -10,7 +10,7 @@ const game = new Game();
 
 game.initializeGame(["U.S. Presidents", "Pop Culture", "Wonders of the World"], 2);
 
-console.log(game);
+console.log(game.table.columns[0].questionList[1]);
 
 
 
