@@ -40,8 +40,38 @@ function setGameQuickplayScreen(){
     game.initializeGame(getClassicCategories(6), 1);
     const everythingContainer = document.querySelector("#everything-container");
     everythingContainer.replaceChildren();
+    renderGameBoard();
 
-    console.log(game);
+}
+
+//TODO: this function needs to be fixed.
+function renderGameBoard(){
+    console.log('game rendered');
+    const everythingContainer = document.querySelector("#everything-container");
+    const gameTable = document.createElement("table");
+    gameTable.id = "game-table";
+
+    let table = game.table;
+    for (let i=0;i<table.columns.length;i++){ //col index
+        for(let j=0;j<table.columns[0].questionList.length;j++){ //row index
+            const tableRow = document.createElement("tr");
+            if (i===0){
+                const header = document.createElement("th");
+                header.textContent = table.columns[i].category;
+                header.id = `col${i}-category`;
+                tableRow.append(header);
+            }
+            else{
+                const tableData = document.createElement("td");
+                tableData.textContent = table.columns[i].questionList[j].displayValue;
+                tableData.id = `col${i}-q${j}`;
+                tableData.class = "question-tile";
+                tableRow.append(tableData);
+            }
+            gameTable.append(tableRow);
+        }
+    }
+    everythingContainer.append(gameTable);
 }
 
 
