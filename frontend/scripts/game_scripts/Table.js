@@ -20,6 +20,7 @@ class Table{
 
     populateTable(categoryList){
         for (let i=0; i<categoryList.length; i++){
+            console.log(categoryList[i]);
             const column = new Column(categoryList[i]);
             this.columns.push(column);
         }

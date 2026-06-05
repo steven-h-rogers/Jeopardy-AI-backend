@@ -3,9 +3,10 @@ class QuestionTile{
         this.displayValue = displayValue; //TODO: Inclusion of this variable breaks other code
         this.realValue = realValue;
         this.isDailyDouble = isDailyDouble;
-        this.question = null; 
-        this.answer = null;
-        this.answered = false;
+        this.question = null; //text representing the question
+        this.answer = null; //text representing the actual answer
+        this.userAnswer = null; //text that the user entered as the answer
+        this.answered = false; //boolean to mark whether the question has been answered or not
     }
 
     setQuestion(text) {

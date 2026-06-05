@@ -1,3 +1,4 @@
+//Game related
 export const DIFFICULTY_LIST = ['very easy', 'easy', 'medium', 'hard', 'very hard', 'master'];
 export const DEFAULT_NUM_CATEGORIES = 6;
 export const DEFAULT_MAX_CATEGORIES = 8;
@@ -10,3 +11,7 @@ export const DEFAULT_QUICKPLAY_SETTINGS = {
 
 export const DEFAULT_BOTS_ENABLED_PRACTICE = false;
 export const DEFAULT_BOTS_ENABLED_CLASSIC = true;
+
+
+//Network related
+export const baseURL = "http://127.0.0.1:8000" //temporary 

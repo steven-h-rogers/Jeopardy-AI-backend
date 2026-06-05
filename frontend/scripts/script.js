@@ -18,7 +18,6 @@ const quickplayButton = document.querySelector("#quickplay-classic");
 quickplayButton.addEventListener('click',()=>{
 setGameQuickplayScreen();
 } );
-console.log(quickplayButton);
 
 
 // used to set the everything-container to the game selection screen
@@ -38,8 +37,9 @@ function setGameSelectionScreen(){
 
 
 // set the current gameboard to a new classic game
-function setGameQuickplayScreen(){
-    game.initializeGame(getClassicCategories(6), 1);
+async function setGameQuickplayScreen(){
+    game.initializeGame(await getClassicCategories(6), 1);
+    console.log(game);
     const everythingContainer = document.querySelector("#everything-container");
     everythingContainer.replaceChildren();
     renderGameBoard();
@@ -49,6 +49,7 @@ function setGameQuickplayScreen(){
 // render the current loaded game board
 function renderGameBoard(){
     const everythingContainer = document.querySelector("#everything-container");
+    everythingContainer.replaceChildren();
     const gameTable = document.createElement("table");
     gameTable.id = "game-table";
 
@@ -71,7 +72,7 @@ function renderGameBoard(){
                     tableData.id = `col${i}-q${rowIndex}`;
                     tableData.class = "question-tile";
                     
-                    tableData.addEventListener('click', (event)=>{ //TODO: create a separate function outside of this one to improve readability
+                    tableData.addEventListener('click', async (event)=>{ //TODO: create a separate function outside of this one to improve readability
                         const cell = event.target.closest("td");
                         if (!cell) return;
 
@@ -80,7 +81,7 @@ function renderGameBoard(){
                         const rowIndex = row.rowIndex -1; // -1 to account for index mismatch between table and questionList
 
                         const questionPayload = game.getQuestionPayload(columnIndex, rowIndex);
-                        const questionAndAnswer = getQuestionAndAnswer(questionPayload);
+                        const questionAndAnswer = await getQuestionAndAnswer(questionPayload);
 
                         //update questionTile through game object
                         game.setQuestionAndAnswer(columnIndex, rowIndex, questionAndAnswer.question, questionAndAnswer.answer);
@@ -121,6 +122,13 @@ function renderQuestionScene(questionTile){
 
     const submitButton = document.createElement("button");
     submitButton.textContent = "Submit"; //maybe change to an arrow character in the future for simplicity and aesthetic
+    submitButton.addEventListener("click", ()=>{
+        const userAnswer = document.querySelector("#answer-input").value;
+        //TODO: judge answer, update user points, delay, go back to game board
+        console.log(userAnswer);
+        questionTile.userAnswer = userAnswer;
+        renderGameBoard();
+    })
 
     inputDiv.append(answerInput, submitButton);
     questionCard.append(question, inputDiv);
