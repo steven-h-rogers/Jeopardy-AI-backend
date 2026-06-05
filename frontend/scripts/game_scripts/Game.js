@@ -19,10 +19,16 @@ class Game{
         this.numDailyDouble = number;
     }
 
-    askQuestion(columnIndex, rowIndex){
+    setQuestionAndAnswer(columnIndex, rowIndex, questionText, answerText){
+        const questionTile = this.table.columns[columnIndex].questionList[rowIndex];
+        questionTile.setQuestion(questionText);
+        questionTile.setAnswer(answerText);
+    }
+
+    getQuestionPayload(columnIndex, rowIndex){
         //QuestionTile related
         const questionTile = this.table.columns[columnIndex].questionList[rowIndex];
-        let value = questionTile.value;
+        let realValue = questionTile.realValue;
         let isDailyDouble = questionTile.isDailyDouble;
 
         //Game related
@@ -33,7 +39,13 @@ class Game{
         let category = this.table.columns[columnIndex].category;
         let previouslyAsked = this.table.columns[columnIndex].previouslyAsked;
 
-        //TODO: add actual api call to get the question and answer.
+        return {"realValue": realValue, "isDailyDouble": isDailyDouble, "round": round, "difficulty": difficulty, "category": category, "previouslyAsked": previouslyAsked};
+    }
+
+    //! currently for debugging. Not sure if frontend should work with classes or if classes should simply return any relevant data
+    getQuestionTile(columnIndex, rowIndex){
+        const questionTile = this.table.columns[columnIndex].questionList[rowIndex];
+        return questionTile;
     }
 }
 

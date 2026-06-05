@@ -3,12 +3,17 @@ class QuestionTile{
         this.displayValue = displayValue; //TODO: Inclusion of this variable breaks other code
         this.realValue = realValue;
         this.isDailyDouble = isDailyDouble;
-        this.text = null; 
+        this.question = null; 
+        this.answer = null;
         this.answered = false;
     }
 
-    setText(text) {
-        this.text = text;
+    setQuestion(text) {
+        this.question = text;
+    }
+
+    setAnswer(text){
+        this.answer = text;
     }
 
     setAnswered(answered){

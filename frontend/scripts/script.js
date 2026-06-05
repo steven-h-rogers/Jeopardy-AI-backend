@@ -1,7 +1,7 @@
 import * as constants from "./constants.js";
 import { SaveManager } from "./game_scripts/SaveManager.js";
 import { Game } from "./game_scripts/Game.js";
-import { getClassicCategories } from "./APIManager.js";
+import { getClassicCategories, getQuestionAndAnswer } from "./APIManager.js";
 
 // game state should be stored in a JSON primarily so that the game board can be re-rendered after 
 // every question, but also so that a user could come back to their game later if they wanted
@@ -70,6 +70,26 @@ function renderGameBoard(){
                     tableData.textContent = table.columns[i].questionList[rowIndex-1].displayValue;
                     tableData.id = `col${i}-q${rowIndex}`;
                     tableData.class = "question-tile";
+                    
+                    tableData.addEventListener('click', (event)=>{ //TODO: create a separate function outside of this one to improve readability
+                        const cell = event.target.closest("td");
+                        if (!cell) return;
+
+                        const row = cell.parentElement;
+                        const columnIndex = cell.cellIndex;
+                        const rowIndex = row.rowIndex -1; // -1 to account for index mismatch between table and questionList
+
+                        const questionPayload = game.getQuestionPayload(columnIndex, rowIndex);
+                        const questionAndAnswer = getQuestionAndAnswer(questionPayload);
+
+                        //update questionTile through game object
+                        game.setQuestionAndAnswer(columnIndex, rowIndex, questionAndAnswer.question, questionAndAnswer.answer);
+
+                        console.log(game);
+
+                        //render questionScene
+                        renderQuestionScene(game.getQuestionTile(columnIndex, rowIndex));
+                    });
                     tableRow.append(tableData);
                 } 
         }
@@ -79,6 +99,32 @@ function renderGameBoard(){
     everythingContainer.append(gameTable);
 }
 
+//TODO: add a function to show the answer if incorrect
+function renderQuestionScene(questionTile){
+    const everythingContainer = document.querySelector("#everything-container");
+    everythingContainer.replaceChildren();
 
+    const timerBar = document.createElement("div");
+    timerBar.id = "timer-bar";
 
+    const questionCard = document.createElement("div");
+
+    const question = document.createElement("h1");
+    question.textContent = questionTile.question;
+
+    const inputDiv = document.createElement("div");
+    inputDiv.id = "input-div";
+
+    const answerInput = document.createElement("input");
+    answerInput.id = "answer-input";
+    answerInput.type = "text";
+
+    const submitButton = document.createElement("button");
+    submitButton.textContent = "Submit"; //maybe change to an arrow character in the future for simplicity and aesthetic
+
+    inputDiv.append(answerInput, submitButton);
+    questionCard.append(question, inputDiv);
+    everythingContainer.append(timerBar, questionCard);
+
+}
 
