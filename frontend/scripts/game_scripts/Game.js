@@ -39,7 +39,8 @@ class Game{
         let category = this.table.columns[columnIndex].category;
         let previouslyAsked = this.table.columns[columnIndex].previouslyAsked;
 
-        return {"realValue": realValue, "isDailyDouble": isDailyDouble, "round": round, "difficulty": difficulty, "category": category, "previouslyAsked": previouslyAsked};
+        //in snake case to make it compatible with api endpoint
+        return {"category": category, "difficulty": difficulty, "value": realValue, "round": round, "is_daily_double": isDailyDouble, "previous_answers_in_category": previouslyAsked};
     }
 
     //! currently for debugging. Not sure if frontend should work with classes or if classes should simply return any relevant data

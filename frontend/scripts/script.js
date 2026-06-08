@@ -81,6 +81,7 @@ function renderGameBoard(){
                         const rowIndex = row.rowIndex -1; // -1 to account for index mismatch between table and questionList
 
                         const questionPayload = game.getQuestionPayload(columnIndex, rowIndex);
+                        console.log(questionPayload);
                         const questionAndAnswer = await getQuestionAndAnswer(questionPayload);
 
                         //update questionTile through game object

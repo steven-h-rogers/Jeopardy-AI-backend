@@ -10,7 +10,7 @@ from backend.api.routers.summarizer_router import router as summarizer_router
 app = FastAPI()
 
 # allowed origins through CORS
-origins = [None]
+origins = ["*"] # ! This is fine for now, but once deployed/if this project scales, changes will need to be made for usage limits and DOS attacks
 
 app.add_middleware(
     CORSMiddleware,

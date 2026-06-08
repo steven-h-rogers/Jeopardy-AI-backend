@@ -19,12 +19,12 @@ class QuestionPayload(BaseModel):
 class QuestionAnswerPayload(BaseModel):
     category: str = Field(description="The category that the generated question is a part of")
     difficulty: str = Field(description="The level of difficulty that the generated question should be")
-    value: int = Field(description="How many points the generated question is worth")
+    value: int = Field(description="How many points the generated question is worth (if it is a daily double, that will already be factored into the value)")
     round: int = Field(description="What round of the game this question is generated for")
     is_daily_double: bool = Field(description="Whether or not this question is a daily double")
     # this may cause significant latency as the number of tokens per question will go up dramatically
     # ? consider making this something like 'previous_answers' if latency is too noticeable
-    previous_answers_in_category: list[str] | None = Field(description='Previously asked questions in this category')
+    previous_answers_in_category: list[str] | None = Field(description='Previously asked questions in this category') #change this to topics in the futrure
 
 class QuestionSummaryPayload(BaseModel):
     question: str = Field(description='The question that is to be summarized')

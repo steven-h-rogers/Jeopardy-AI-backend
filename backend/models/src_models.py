@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 
 
 class CategoryOutput(BaseModel):
-    categories: list[str] = Field(description="The list of generated category names")
+    categories: list[str] = Field(description="The list of generated category names where each category is simply the category name")
 
 class QuestionOutput(BaseModel):
     question: str = Field(description="A string that only consists of a Jeopardy-style question (that is not similar to any previously asked)")
