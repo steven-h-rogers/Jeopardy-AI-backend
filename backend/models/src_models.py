@@ -20,3 +20,6 @@ class QuestionSummaryOutput(BaseModel):
 class TopicOutput(BaseModel):
     topic: str = Field(description="The topic that this question covered in the fewest words")
 
+class BotOutput(BaseModel):
+    answer: str = Field(description="A correct or incorrect answer to a Jeopardy-style question")
+
